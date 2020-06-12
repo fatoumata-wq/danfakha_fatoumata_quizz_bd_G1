@@ -1,62 +1,56 @@
-<?php
- define("WEBROOT","http://localhost/new_projet_quizz");//on devait changer ici
-   define("ACTION","action");
-  require_once("./traitement/traitement.php");
-  require_once("./data/bd.php");
-if(isset($_GET[ACTION]))
-{
+
+<div id="inscription-form" class="w-100 bg-white container   text-secondary py-2">
+                            <div class=" inscription-form-header">
+                                <h1 class="h5 m-0">S'INSCRIRE</h1>
+                                <p class="m-0 ">Pour proposer un quizz</p>
+                                <hr class="w-50 m-0">
+                            </div>
+
+                            <div class="inscription-form-body row">
+                                <div class="col-md-7">
+                                    <form class="w-75">
+                                        <div class="form-group mb-1">
+                                            <label class="m-0 " for="prenom">Prenom</label>
+                                            <input name="prenom" type="email" class="form-control" id="prenom">
+                                        </div>
+
+                                        <div class="form-group mb-1">
+                                            <label class="m-0 " for="nom">Nom</label>
+                                            <input name="nom" type="password" class="form-control" id="nom">
+                                        </div>
+
+                                        <div class="form-group  mb-1">
+                                            <label class="m-0 " for="login">Login</label>
+                                            <input name="login" type="password" class="form-control" id="login">
+                                        </div>
+
+                                        <div class="form-group mb-1">
+                                            <label class="m-0 " for="password1">Password</label>
+                                            <input name="password1" type="password" class="form-control" id="password1">
+                                        </div>
+
+                                        <div class="form-group mb-1">
+                                            <label class="m-0 " for="password2">Confirmer Password</label>
+                                            <input name="password2" type="password" class="form-control" id="password2">
+                                        </div>
+
+                                        <div class="form-group d-flex justify-content-between">
+                                            <label class="d-block">Avatar</label>
+                                            <button class="btn btn-primary d-block">choisir un fichier</button>
+                                        </div>
 
 
-    if($_GET[ACTION]=='connexion')
-    {
-          //Traitement de connexion regarde au niveau de la redirection de monsieur wane lui il a utilisé des no comme showjoueur
-          pageConnexion($_POST);
-    }
-    else if($_GET[ACTION]=='inscription')
-    {
-        //Vue Incription Joueur
-        require_once './pages/joueur/inscription.php';
-    }elseif($_GET[ACTION]=="admin"){
-        //Appel des Vues Admin
-        //Avant d'appeler une vue admin on verifie 
-        //que l'amin est connecté
-        if(is_connect()){
-            //Appel des Pages Admin
-            if(isset($_GET["page"])){
-              
-                if($_GET["page"]=="showJoueur")
-                {
-                    //Chargement de la liste des Joueurs
-                    require_once './pages/admin/liste_joueur.php';
-                }elseif($_GET["page"]=="addQuestion"){
-                    //Chargement de la Vue qui permet d'ajouter des Questions
-                    require_once './pages/admin/question.php';
-                }
-                
-            }else{
-                //Vue Admin charger par défaut
-                require_once './pages/layout_admin.php';
-            }
-        }else{
-            //Page de Connexion
-            require_once './pages/layout.php'; 
-        }
-        
-    }elseif($_GET[ACTION]=="joueur"){
-        if(is_connect()){
-            require_once './pages/joueur/joueur.php';
-        }
-      
-  } elseif($_GET[ACTION]=="deconnexion"){
-          //Traitement de Deconnexion
-           deconnection();
-    }
-}
-else
-{
 
-        require_once './pages/layout.php';
-}
+                                        <button type="submit" class="btn btn-primary">Creer compte</button>
+
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="avatar  ">
+                                        <img class="img-fluid" src="./img/" alt="">
+                                    </div>
+                                </div>
+                            </div>
 
 
-?>
+                        </div>
+                        </div>
